@@ -1,0 +1,40 @@
+.step.slide#before[data-x=x_succ data-y=0]
+  q
+    span Before
+
+.step.slide.spec[data-x=x_succ data-y=0]
+  q
+    pre
+      code[class="ruby" style="font-size:0.6em;line-height:1.5em"]
+        |
+          describe "#initialize" do
+            before do
+              @street = Street.new name: "Av. Paulista"
+            end
+            it "name should be Av. Paulista" do
+              @street.name.should == 'Av. Paulista'
+            end
+          end
+
+.step.slide.code[data-x=x_succ data-y=0]
+  q
+    pre
+      code[class="ruby"]
+        | def initialize data={}
+            @name = data[:name]
+          end
+
+.step.slide.spec[data-x=x_succ data-y=0]
+  q
+    pre
+      code[class="ruby" style="font-size:0.6em;line-height:1.5em"]
+        |
+          describe "#initialize" do
+            subject{ Street.new name: "Av. Paulista" }
+            its(:name){ should == 'Av. Paulista' }
+          end
+
+.step.slide.exercise[data-x=x_succ data-y=0]
+  = image_tag 'http://cdn1.iconfinder.com/data/icons/oldschool_babasse/Png/Hardware/ordinateur%20off.png'
+  q
+    | Implemente os testes para verificar que todos os campos são setados no inicializador corretamente.

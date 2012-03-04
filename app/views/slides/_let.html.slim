@@ -1,0 +1,60 @@
+.step.slide#let[data-x=x_succ data-y=0]
+  q
+    span Let
+
+.step.slide.spec[data-x=x_succ data-y=0]
+  q
+    pre
+      code[class="ruby" style="font-size:0.8em; line-height:1.5em"]
+        |
+          def build_street
+            Street.new name: "Av. Paulista",
+              price: 300,
+              add_house_price: 50,
+              add_hotel_price: 80,
+              houses_rent: 30,
+              hotel_rent: 60
+          end
+
+.step.slide.spec[data-x=x_succ data-y=0]
+  q
+    pre
+      code[class="ruby" style="font-size:0.7em"]
+        |
+          describe "#buy" do
+            let(:street){ build_street }
+            before(:all){ subject.buy street }
+            its(:money){ should == 700 }
+            its(:ownings){ should == [street] }
+          end
+
+.step.slide.code[data-x=x_succ data-y=0]
+  q
+    pre
+      code[class="ruby" style="font-size:0.8em; line-height:1.2em"]
+        |
+          class Player
+            attr_reader :money, :ownings
+            def initialize
+              @money = 1000
+              @ownings = []
+            end
+            def buy street
+              @money -= street.price
+              @ownings << street
+            end
+          end
+
+.step.slide.exercise#dojo1[data-x=x_succ data-y=0]
+  = image_tag 'http://cdn1.iconfinder.com/data/icons/oldschool_babasse/Png/Hardware/ordinateur%20off.png'
+  q
+    | The Dojo I.
+    ul[style="font-size:0.6em;line-height:1em"]
+      li Create a Game class;
+      li Game should have many players;
+      li Game should have an array of positions, with Streets in them (let's forget start position, prison, luck cards and transportation);
+      li Player should have position;
+      li Player should be able to move randomly 2-12 positions;
+      li If a player buys a street, no one else can buy it.
+      li Players can add houses up to 4 and then a hotel in the streets they own.
+      li If a player stays in a street owned by another player he has to pay to the other player according to the houses/hotel.

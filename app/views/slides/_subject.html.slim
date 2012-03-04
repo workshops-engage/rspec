@@ -1,0 +1,80 @@
+.step.slide#subject[data-x=x_succ data-y=0]
+  q
+    span Subject
+    small #TODO
+
+.step.slide.spec[data-x=x_succ data-y=0]
+  q
+    pre
+      code[class="ruby" style="font-size:0.65em"]
+        | describe Street do
+            it "should respond to #name" do
+              Street.new.should respond_to(:name)
+            end
+          end
+
+.step.slide.shell[data-x=x_succ data-y=0]
+  q
+    div[style="font-size:0.6em; line-height: 1.3em"]
+      pre
+        | Failures:
+
+          1) Street should respond to #name
+             <span style="color:#f40">Failure/Error: Street.new.should respond_to(:name)
+               expected #<Street:0x00000101347270> to respond to :name</span>
+             <span style="color:#bdf"># ./specs/street_spec.rb:6:in `block (2 levels) in <br>&lt;top (required)>'</span>
+
+          Finished in 0.00047 seconds
+          <span style="color:#f40">1 example, 1 failure</span>
+
+    = image_tag "okay-guy.jpg", style: "float:right;position:relative;top:-100px"
+
+.step.slide.code[data-x=x_succ data-y=0]
+  q
+    pre
+      code[class="ruby" style="font-size:0.65em"]
+        | class Street
+            attr_accessor :name
+          end
+
+.step.slide.shell[data-x=x_succ data-y=0]
+  q
+    div[style="font-size:0.8em; line-height: 1.3em"]
+      pre
+        |
+          Street
+            <span style="color:#af3">should respond to #name</span>
+
+          Finished in 0.00049 seconds
+          <span style="color:#af3">1 example, 0 failures</span>
+    = image_tag "troll-happy.jpg", style: "float:right;position:relative;top:-100px;width:250px;"
+
+.step.slide[data-x=x_succ data-y=0]
+  q
+    | subject é Street.new
+
+
+.step.slide.spec[data-x=x_succ data-y=0]
+  q
+    pre
+      code[class="ruby" style="font-size:0.65em"]
+        | describe Street do
+            it{ should respond_to(:name) }
+          end
+
+.step.slide.shell[data-x=x_succ data-y=0]
+  q
+    div[style="font-size:0.8em; line-height: 1.3em"]
+      pre
+        |
+          Street
+            <span style="color:#af3">should respond to #name</span>
+
+          Finished in 0.00049 seconds
+          <span style="color:#af3">1 example, 0 failures</span>
+    = image_tag "troll-happy.jpg", style: "float:right;position:relative;top:-100px;width:250px;"
+
+.step.slide.exercise[data-x=x_succ data-y=0]
+  = image_tag 'http://cdn1.iconfinder.com/data/icons/oldschool_babasse/Png/Hardware/ordinateur%20off.png'
+  q
+    | Implemente testes para todos os atributos da classe Street.
