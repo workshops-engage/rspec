@@ -4,7 +4,8 @@ class Street
     :add_house_price,
     :add_hotel_price,
     :houses_rent,
-    :hotel_rent
+    :hotel_rent,
+    :owner
 
   def initialize data={}
     @name = data[:name]
