@@ -1,0 +1,93 @@
+$card-width: 79px;
+$card-height: 123px;
+
+@mixin pos($x, $y){
+  background-position: (-$card-width * ($x - 1)) (-$card-height * $y);
+}
+
+@mixin clubs($number){
+  @include pos($number, 0);
+}
+
+@mixin diamonds($number){
+  @include pos($number, 1);
+}
+
+@mixin hearts($number){
+  @include pos($number, 2);
+}
+
+@mixin spades($number){
+  @include pos($number, 3);
+}
+
+.card{
+  background: white url(cards.png) no-repeat 0px 0px;
+  width: $card-width;
+  height: $card-height;
+  float: left;
+
+  // joker
+  &.back{ @include pos(1, 4); }
+  &.joker{ @include pos(3, 4); }
+
+  // clubs
+  &.♣1{ @include clubs(1); }
+  &.♣2{ @include clubs(2); }
+  &.♣3{ @include clubs(3); }
+  &.♣4{ @include clubs(4); }
+  &.♣5{ @include clubs(5); }
+  &.♣6{ @include clubs(6); }
+  &.♣7{ @include clubs(7); }
+  &.♣8{ @include clubs(8); }
+  &.♣9{ @include clubs(9); }
+  &.♣10{ @include clubs(10); }
+  &.♣11{ @include clubs(11); }
+  &.♣12{ @include clubs(12); }
+  &.♣13{ @include clubs(13); }
+
+  // diamonds
+  &.♦1{ @include diamonds(1); }
+  &.♦2{ @include diamonds(2); }
+  &.♦3{ @include diamonds(3); }
+  &.♦4{ @include diamonds(4); }
+  &.♦5{ @include diamonds(5); }
+  &.♦6{ @include diamonds(6); }
+  &.♦7{ @include diamonds(7); }
+  &.♦8{ @include diamonds(8); }
+  &.♦9{ @include diamonds(9); }
+  &.♦10{ @include diamonds(10); }
+  &.♦11{ @include diamonds(11); }
+  &.♦12{ @include diamonds(12); }
+  &.♦13{ @include diamonds(13); }
+
+  // hearts
+  &.♥1{ @include hearts(1); }
+  &.♥2{ @include hearts(2); }
+  &.♥3{ @include hearts(3); }
+  &.♥4{ @include hearts(4); }
+  &.♥5{ @include hearts(5); }
+  &.♥6{ @include hearts(6); }
+  &.♥7{ @include hearts(7); }
+  &.♥8{ @include hearts(8); }
+  &.♥9{ @include hearts(9); }
+  &.♥10{ @include hearts(10); }
+  &.♥11{ @include hearts(11); }
+  &.♥12{ @include hearts(12); }
+  &.♥13{ @include hearts(13); }
+
+  // spades
+  &.♠1{ @include spades(1); }
+  &.♠2{ @include spades(2); }
+  &.♠3{ @include spades(3); }
+  &.♠4{ @include spades(4); }
+  &.♠5{ @include spades(5); }
+  &.♠6{ @include spades(6); }
+  &.♠7{ @include spades(7); }
+  &.♠8{ @include spades(8); }
+  &.♠9{ @include spades(9); }
+  &.♠10{ @include spades(10); }
+  &.♠11{ @include spades(11); }
+  &.♠12{ @include spades(12); }
+  &.♠13{ @include spades(13); }
+}
